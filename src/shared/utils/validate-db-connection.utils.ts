@@ -1,6 +1,6 @@
-import { database } from '../database/database';
+import { database } from '../../database/database';
 import { logger } from './utils';
-import { DatabaseLoggerMessages } from '../libs/enums/enums';
+import { DatabaseLoggerMessages } from '../enums/enums';
 
 export const validateDbConnection = async () => {
     const result = await database.raw('select 1+1 as result');

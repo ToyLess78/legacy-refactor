@@ -1,10 +1,10 @@
 import express from 'express';
 import { errorHandler, notFoundHandler, requestLogger } from './middlewares/middelewares';
-import router from './routes/routes';
+import router from './router/router';
 import { statEmitter, stats } from './events/stats-emitter.events';
-import { logger, validateDbConnection, gracefulShutdown, validateEnv  } from './utils/utils';
-import './utils/handle-unhandled-rejection.utils';
-import { ServerLoggerMessages } from './libs/enums/enums';
+import { logger, validateDbConnection, gracefulShutdown, validateEnv  } from './shared/utils/utils';
+import './shared/utils/handle-unhandled-rejection.utils';
+import { ServerLoggerMessages } from './shared/enums/enums';
 
 validateEnv();
 

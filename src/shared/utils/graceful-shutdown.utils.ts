@@ -1,6 +1,6 @@
 import { Server } from 'http';
 import { logger } from './utils';
-import { ServerLoggerMessages } from '../libs/enums/enums';
+import { ServerLoggerMessages } from '../enums/enums';
 
 export const gracefulShutdown = (server: Server) => {
     const shutdown = () => {
