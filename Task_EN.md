@@ -40,7 +40,7 @@ Technologies:
 
 **Optional tasks**:
 
-1. Add logger (of your [choice](https://www.highlight.io/blog/nodejs-logging-libraries)). On each `request` you need to log: 
+1. Add loggerUtil (of your [choice](https://www.highlight.io/blog/nodejs-logging-libraries)). On each `request` you need to log: 
    * incoming request: URL, method, date of invocation
    * server response: URL, method, total time of processing the request, response HTTP code
 2. During server start-up:
