@@ -1,1 +1,1 @@
-export { getUserById } from './user.repository';
+export { getUserById, updateUserById } from './user.repository';

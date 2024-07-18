@@ -1,14 +1,22 @@
-import { Request, Response } from 'express';
-import { asyncHandler } from '../middlewares/async-handler.middleware';
-import { findUserById } from '../services/user.service';
+import { Request, Response, NextFunction } from 'express';
+import { userUpdateSchema } from '../shared/schemas/user-update.schema';
+import { AppError } from '../shared/utils/utils';
+import { asyncHandler } from '../middlewares/middelewares';
+import { updateUserService } from '../services/services';
+import { CustomRequest } from '../shared/interfaces/custom-request';
 
-export const getUserById = asyncHandler(async (req: Request, res: Response) => {
-    const user = await findUserById(req.params.id);
+export const updateUser = asyncHandler(async (req: CustomRequest, res: Response, next: NextFunction) => {
+    const { error } = userUpdateSchema.validate(req.body);
+    if (error) {
+        return next(AppError.badRequest(error.details[0].message));
+    }
 
-    if (user)
+    const tokenPayload = req.user!;
+    const result = await updateUserService(req.params.id, req.body, tokenPayload.id);
+
     res.send({
-        ...user,
-        createdAt: user.created_at,
-        updatedAt: user.updated_at,
+        ...result,
+        createdAt: result.created_at,
+        updatedAt: result.updated_at,
     });
 });

@@ -21,6 +21,10 @@ export class AppError extends Error {
         return new AppError(message, 400);
     }
 
+    static unauthorized(message: string = 'Not Authorized') {
+        return new AppError(message, 401);
+    }
+
     static internalServerError(message: string = 'Internal Server Error') {
         return new AppError(message, 500);
     }

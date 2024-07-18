@@ -1,5 +1,5 @@
 import { getUserById } from '../repositories/user.repository';
-import { User } from '../shared/models/user.model';
+import { User } from '../shared/interfaces/user';
 import { AppError } from '../shared/utils/utils';
 
 export const findUserById = async (id: string): Promise<User | null> => {
