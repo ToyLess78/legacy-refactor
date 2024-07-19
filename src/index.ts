@@ -3,7 +3,7 @@ import { errorHandler, notFoundHandler, requestLogger } from './middlewares/midd
 import router from './router/router';
 import { statEmitter, stats } from './events/stats-emitter.events';
 import { logger, validateDbConnection, gracefulShutdown, validateEnv  } from './shared/utils/utils';
-import './shared/utils/handle-unhandled-rejection.utils';
+import './shared/utils/error/handle-unhandled-rejection.utils';
 import { ServerLoggerMessages } from './shared/enums/enums';
 import jwt from 'jsonwebtoken';
 

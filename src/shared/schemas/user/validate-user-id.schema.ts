@@ -1,5 +1,5 @@
 import joi from 'joi';
 
-export const userIdSchema = {
+export const validateUserIdSchema = {
     id: joi.string().uuid().required(),
 };

@@ -1,5 +1,5 @@
-import { logger } from './logger.util';
-import { EnvLoggerMessages } from '../enums/enums';
+import { logger } from '../logger/logger.util';
+import { EnvLoggerMessages } from '../../enums/enums';
 
 const requiredEnvVars = [
     'DATABASE_PORT',

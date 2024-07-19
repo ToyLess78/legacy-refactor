@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
-import { userIdSchema } from '../shared/schemas/user-id.schema';
+import { validateUserIdSchema } from '../../shared/schemas/schemas';
 import joi from 'joi';
-import { AppError } from '../shared/utils/app-error.util';
+import { AppError } from '../../shared/utils/utils';
 
 export const validateUserId = (req: Request, res: Response, next: NextFunction) => {
-    const schema = joi.object(userIdSchema);
+    const schema = joi.object(validateUserIdSchema);
 
     const { error } = schema.validate(req.params);
     if (error) {

@@ -1,4 +1,4 @@
-import { AppError } from './utils';
+import { AppError } from '../utils';
 
 export const handleDatabaseError = (error: unknown): never => {
     if (error instanceof Error && 'code' in error) {
