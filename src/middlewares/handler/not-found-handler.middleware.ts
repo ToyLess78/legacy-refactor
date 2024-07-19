@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { AppError } from '../utils/utils';
+import { AppError } from '../../shared/utils/utils';
 
 export const notFoundHandler = (req: Request, res: Response, next: NextFunction) => {
-    next(AppError.notFound('Route not found'));
+    const error = AppError.notFound('Route not found');
+    next(error);
 };
