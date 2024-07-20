@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
 
-export const healthController = (req: Request, res: Response) => {
+export const healthCtrl = (req: Request, res: Response) => {
     res.send('Hello World!');
 };

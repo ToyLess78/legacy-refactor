@@ -1,3 +1,4 @@
-export { createUser } from './user/create-user.service';
-export { updateUserService } from './user/update-user.service';
-export { findUserById } from './user/find-user.service';
+export { transactionSvc } from './transaction/transaction.svs';
+export { createUserSvc } from './users/create-user.svc';
+export { updateUserSvc } from './users/update-user.svc';
+export { findUserByIdSvc } from './users/find-user.update.svc';

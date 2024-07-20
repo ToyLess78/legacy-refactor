@@ -1,36 +1,33 @@
 import express from 'express';
-import { errorHandler, notFoundHandler, requestLogger } from './middlewares/middelewares';
+import { errorHandlerMw, notFoundHandlerMw, reqLoggerMw } from './middlewares/middelewares';
 import router from './router/router';
 import { statEmitter, stats } from './events/stats-emitter.events';
-import { logger, validateDbConnection, gracefulShutdown, validateEnv  } from './shared/utils/utils';
+import { gracefulShutdown, logger, validateDbConnection, validateEnv } from './shared/utils/utils';
 import './shared/utils/error/handle-unhandled-rejection.utils';
-import { ServerLoggerMessages } from './shared/enums/enums';
+import { SrvLoggerMsg } from './shared/enums/enums';
 import jwt from 'jsonwebtoken';
 
 validateEnv();
 
-const startServer = async () => {
-    await validateDbConnection();
+const app = express();
+const port = 4000;
 
-    const app = express();
-    const port = 4000;
+app.use(reqLoggerMw);
+app.use(express.json());
+app.use(router);
+app.use(notFoundHandlerMw);
+app.use(errorHandlerMw);
 
-    app.use(requestLogger);
+const token = jwt.sign({ type: 'admin' }, "testing12345");
+console.log('token', token);
 
-    app.use(express.json());
+validateDbConnection().catch((err) => {
+    logger.error(`${SrvLoggerMsg.FailedToStartServer} ${err}`);
+    process.exit(1);
+});
 
-    app.use(router);
-
-    app.use(notFoundHandler);
-
-    app.use(errorHandler);
-    const token = jwt.sign({ id: "c486ab55-5c4b-4689-8f57-ace155ea65b4" }, "testing12345");
-
-    console.log('token', token)
-
-    const server = app.listen(port, () => {
-        logger.info(`${ServerLoggerMessages.AppListening}${port}`);
-    });
+const server = app.listen(port, () => {
+    logger.info(`${SrvLoggerMsg.AppListening}${port}`);
 
     statEmitter.on('newUser', () => {
         stats.totalUsers++;
@@ -43,11 +40,8 @@ const startServer = async () => {
     });
 
     gracefulShutdown(server);
-
-    return server;
-};
-
-startServer().catch((err) => {
-    logger.error(`${ServerLoggerMessages.FailedToStartServer} ${err}`);
-    process.exit(1);
 });
+
+module.exports = {app, server};
+
+

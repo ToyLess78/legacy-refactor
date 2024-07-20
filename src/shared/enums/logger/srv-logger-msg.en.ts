@@ -1,4 +1,4 @@
-export enum ServerLoggerMessages {
+export enum SrvLoggerMsg {
     AppListening = 'App listening at http://localhost:',
     ReceivedKillSignal = 'Received kill signal, shutting down gracefully',
     ClosedRemainingConnections = 'Closed out remaining connections',

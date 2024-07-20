@@ -1,12 +1,12 @@
 import { database } from '../../../database/database';
 import { logger } from '../utils';
-import { DatabaseLoggerMessages } from '../../enums/enums';
+import { DbLoggerMsg } from '../../enums/enums';
 
 export const validateDbConnection = async () => {
     const result = await database.raw('select 1+1 as result');
     if (!result) {
-        logger.error(DatabaseLoggerMessages.ConnectionFailedNoResult);
+        logger.error(DbLoggerMsg.ConnectionFailedNoResult);
         process.exit(1);
     }
-    logger.info(DatabaseLoggerMessages.ConnectionSuccessful);
+    logger.info(DbLoggerMsg.ConnectionSuccessful);
 };

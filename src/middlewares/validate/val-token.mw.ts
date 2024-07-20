@@ -3,7 +3,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 import { AppError } from '../../shared/utils/utils';
 import { ICustomRequest } from '../../shared/interfaces/interfaces';
 
-export const validateToken = (req: ICustomRequest, res: Response, next: NextFunction) => {
+export const validateTokenMw = (req: ICustomRequest, res: Response, next: NextFunction) => {
     const authorizationHeader = req.headers['authorization'];
     if (!authorizationHeader) {
         return next(AppError.unauthorized('Not Authorized'));

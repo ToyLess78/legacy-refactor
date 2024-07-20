@@ -1,6 +1,6 @@
 import { IUserDatabaseDto, IUserResponseDto } from '../../interfaces/user-dto';
 
-export const formatData = (user: IUserDatabaseDto | IUserDatabaseDto & { accessToken: string }): IUserResponseDto => {
+export const formatUserData = (user: IUserDatabaseDto | IUserDatabaseDto & { accessToken: string }): IUserResponseDto => {
     const { created_at, updated_at, ...userWithoutTimestamps } = user;
     return {
         ...userWithoutTimestamps,

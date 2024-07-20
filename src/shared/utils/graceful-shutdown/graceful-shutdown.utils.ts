@@ -1,17 +1,17 @@
 import { Server } from 'http';
 import { logger } from '../utils';
-import { ServerLoggerMessages } from '../../enums/enums';
+import { SrvLoggerMsg } from '../../enums/enums';
 
 export const gracefulShutdown = (server: Server) => {
     const shutdown = () => {
-        logger.info(ServerLoggerMessages.ReceivedKillSignal);
+        logger.info(SrvLoggerMsg.ReceivedKillSignal);
         server.close(() => {
-            logger.info(ServerLoggerMessages.ClosedRemainingConnections);
+            logger.info(SrvLoggerMsg.ClosedRemainingConnections);
             process.exit(0);
         });
 
         setTimeout(() => {
-            logger.error(ServerLoggerMessages.ForcefullyShuttingDown);
+            logger.error(SrvLoggerMsg.ForcefullyShuttingDown);
             process.exit(1);
         }, 10000);
     };
