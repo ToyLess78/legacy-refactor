@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { logger } from '../../shared/utils/utils';
 
-export const requestLogger = (req: Request, res: Response, next: NextFunction) => {
+export const reqLoggerMw = (req: Request, res: Response, next: NextFunction) => {
     const start = Date.now();
     const { method, url } = req;
     const timestamp = new Date().toISOString();

@@ -1,5 +1,5 @@
 import { logger } from '../logger/logger.util';
-import { EnvLoggerMessages } from '../../enums/enums';
+import { EnvLoggerMsg } from '../../enums/enums';
 
 const requiredEnvVars = [
     'DATABASE_PORT',
@@ -14,8 +14,8 @@ export const validateEnv = () => {
     const missingEnvVars = requiredEnvVars.filter((varName) => !process.env[varName]);
 
     if (missingEnvVars.length > 0) {
-        logger.error(`${EnvLoggerMessages.MissingEnvVars} ${missingEnvVars.join(', ')}`);
+        logger.error(`${EnvLoggerMsg.MissingEnvVars} ${missingEnvVars.join(', ')}`);
         process.exit(1);
     }
-    logger.info(EnvLoggerMessages.AllEnvVarsSet);
+    logger.info(EnvLoggerMsg.AllEnvVarsSet);
 };
