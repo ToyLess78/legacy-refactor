@@ -7,9 +7,9 @@ import {
     createUserCtrl,
     getUserByIdCtrl,
     healthCtrl,
-    transactionsCtrl
+    transactionsCtrl, updateEventCtrl
 } from '../controllers/controllers';
-import { cmbEventsMw, cmbPutUserMw, cmbTransactionMw } from '../middlewares/cmb-mw';
+import { cmbEventsMw, cmbPutUserMw, cmbTransactionMw, cmbUpEventsMw } from '../middlewares/cmb-mw';
 
 const router = express.Router();
 
@@ -22,5 +22,6 @@ router.post('/users', valCreateUserSchMw, createUserCtrl);
 router.post('/transactions', cmbTransactionMw, transactionsCtrl);
 
 router.post('/events', cmbEventsMw, createEventsCtrl);
+router.put('/events/:id', cmbUpEventsMw, updateEventCtrl);
 
 export default router;

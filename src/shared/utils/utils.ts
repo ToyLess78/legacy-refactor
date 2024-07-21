@@ -1,3 +1,5 @@
+export { processBet } from './processors/bets.utils';
+export { determineMatchResult } from './processors/determine-match-result.util';
 export { combineMw } from './combine-mw/combine-mw.util';
 export { toSnakeCase, toCamelCase } from './format-data/convert-case.util';
 export { formatTransactionData } from './format-data/format-transaction-data.util';
