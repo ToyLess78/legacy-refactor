@@ -9,7 +9,6 @@ export const getUserByIdCtrl = asyncHandlerMw(async (req: ICustomRequest, res: R
 
     if (result) {
         const formattedUser = formatUserData(result);
-
         res.send(formattedUser)
     }
 });

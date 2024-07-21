@@ -1,3 +1,4 @@
+export { valCreateEventSchMw } from './validate/val-event-sch.mw';
 export { valUpdateUserSchMw } from './validate/val-update-user-sch.mw';
 export { valCreateUserSchMw } from './validate/val-create-user-sch.mw';
 export { valTransactionSchMw } from './validate/val-transaction-sch.mw';
