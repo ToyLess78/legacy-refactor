@@ -7,26 +7,27 @@ export interface IBetsDatabaseDto {
     prediction: 'w1' | 'w2' | 'x';
     win: boolean | null;
     user_balance: number;
+    created_at: Date;
+    updated_at: Date;
 }
 
-export interface IBetRequestDto {
+interface IBaseBetDto {
     userId: string;
     eventId: string;
     betAmount: number;
-    multiplier: number;
     prediction: 'w1' | 'w2' | 'x';
+    multiplier: number;
+}
+
+export interface IBetRequestDto extends IBaseBetDto {
     win?: boolean | null;
 }
 
-export interface IBetResponseDto {
+export interface IBetResponseDto extends IBaseBetDto {
     id: string;
-    userId: string;
-    eventId: string;
-    betAmount: number;
-    multiplier: number;
-    prediction: 'w1' | 'w2' | 'x';
     win: boolean | null;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date;
+    updatedAt: Date;
     currentBalance: number;
 }
+
