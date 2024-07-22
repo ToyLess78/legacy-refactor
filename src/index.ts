@@ -18,7 +18,10 @@ app.use(router);
 app.use(notFoundHandlerMw);
 app.use(errorHandlerMw);
 
-const token = jwt.sign({ type: 'admin' }, "testing12345");
+const token = jwt.sign({
+    type: "client",
+    id: "0f290598-1b54-4a36-8c58-33caa7d08b5f"
+}, "testing12345");
 console.log('token', token);
 
 validateDbConnection().catch((err) => {

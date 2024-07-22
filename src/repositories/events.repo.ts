@@ -21,21 +21,13 @@ export const updateEventScoreRepo = async (eventId: string, score: string): Prom
     return event ? event : null;
 };
 
-export const updateBetRepo = async (betId: string, win: boolean): Promise<void> => {
-    await database('bet')
-        .where('id', betId)
-        .update({ win });
-};
-
 export const updateUserBalanceRepo = async (userId: string, amount: number): Promise<void> => {
     await database('user')
         .where('id', userId)
         .increment('balance', amount);
 };
 
-export const getBetsForEventRepo = async (eventId: string) => {
-    return await database('bet')
-        .where('event_id', eventId)
-        .andWhere('win', null);
+export const getEventByIdRepo = async (eventId: string) => {
+    return await database('event').where('id', eventId).first();
 };
 

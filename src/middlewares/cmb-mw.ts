@@ -1,5 +1,6 @@
 import { combineMw } from '../shared/utils/utils';
 import {
+    valCreateBetsSchMw,
     valCreateEventSchMw,
     validateAdminMw,
     validateTokenMw,
@@ -13,3 +14,4 @@ export const cmbTransactionMw = combineMw(validateTokenMw, validateAdminMw, valT
 export const cmbPutUserMw = combineMw(validateTokenMw, validateUserIdMw, valUpdateUserSchMw);
 export const cmbEventsMw = combineMw(validateTokenMw, validateAdminMw, valCreateEventSchMw);
 export const cmbUpEventsMw = combineMw(validateTokenMw, validateAdminMw, valUpdateEventSchMw);
+export const cmbUpBetsMw = combineMw(validateTokenMw, valCreateBetsSchMw);

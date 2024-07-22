@@ -1,3 +1,4 @@
+export { createBetsCtrl } from './bets/create-bets.ctrl';
 export { updateEventCtrl } from './events/update-event.ctrl';
 export { createEventsCtrl } from './events/create-events.ctrl';
 export { transactionsCtrl } from './transaction/transaction.ctrl';

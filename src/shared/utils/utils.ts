@@ -1,3 +1,6 @@
+export { validateEventExists, validateOddsExists } from './validate/val-event-odds.util';
+export { validateUserExists, validateUserBalance } from './validate/val-user.util';
+export { getMultiplier } from './processors/multiplier.util';
 export { processBet } from './processors/bets.utils';
 export { determineMatchResult } from './processors/determine-match-result.util';
 export { combineMw } from './combine-mw/combine-mw.util';

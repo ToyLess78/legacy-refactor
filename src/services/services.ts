@@ -1,3 +1,4 @@
+export { createBetSvc } from './bets/create-bet.svc';
 export { updateEventSvc } from './events/update-event.svc';
 export { createEventSvc } from './events/create-event.svc';
 export { transactionSvc } from './transaction/transaction.svs';
