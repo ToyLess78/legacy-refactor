@@ -9,6 +9,5 @@ export const validateAdminMw = (req: ICustomRequest, res: Response, next: NextFu
     if (tokenPayload?.type !== 'admin') {
         return next(AppError.unauthorized());
     }
-
     next();
 };

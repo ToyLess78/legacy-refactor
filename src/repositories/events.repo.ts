@@ -28,6 +28,6 @@ export const updateUserBalanceRepo = async (userId: string, amount: number): Pro
 };
 
 export const getEventByIdRepo = async (eventId: string) => {
-    return await database('event').where('id', eventId).first();
+    return database('event').where('id', eventId).first();
 };
 
