@@ -6,10 +6,13 @@ export interface IOddsBase {
 
 export interface IOddsRequestDto extends IOddsBase {}
 
-export interface IOddsDatabaseDto extends IOddsBase {
+export interface IOddsDatabaseDto {
     id: string;
     createdAt: Date;
     updatedAt: Date;
+    home_win: number;
+    away_win: number;
+    draw: number;
 }
 
 export interface IOddsResponseDto extends IOddsBase {
