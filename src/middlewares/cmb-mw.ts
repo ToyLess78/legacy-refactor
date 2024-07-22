@@ -15,3 +15,4 @@ export const cmbPutUserMw = combineMw(validateTokenMw, validateUserIdMw, valUpda
 export const cmbEventsMw = combineMw(validateTokenMw, validateAdminMw, valCreateEventSchMw);
 export const cmbUpEventsMw = combineMw(validateTokenMw, validateAdminMw, valUpdateEventSchMw);
 export const cmbUpBetsMw = combineMw(validateTokenMw, valCreateBetsSchMw);
+export const cmbStatsMw = combineMw(validateTokenMw, validateAdminMw);
