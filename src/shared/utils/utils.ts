@@ -1,8 +1,9 @@
+export { processBet } from './processors/bets.utils';
+export { determineMatchResult } from './processors/determine-match-result.util';
 export { combineMw } from './combine-mw/combine-mw.util';
 export { toSnakeCase, toCamelCase } from './format-data/convert-case.util';
 export { formatTransactionData } from './format-data/format-transaction-data.util';
 export { createToken } from './token/create-token.util';
-export { formatUserData } from './format-data/format-data.util';
 export { withErrorHandling } from './error/handler-database-error.util';
 export { handleDatabaseError } from './error/handler-database-error.util';
 export { AppError } from './error/app-error.util';

@@ -1,4 +1,4 @@
-import { AppError, withErrorHandling } from '../../shared/utils/utils';
+import { AppError, toCamelCase, withErrorHandling } from '../../shared/utils/utils';
 import { updateUserByIdRepo } from '../../repositories/user.repo';
 import { IUserDatabaseDto } from '../../shared/interfaces/user-dto';
 
@@ -12,6 +12,6 @@ export const updateUserSvc = (id: string, userData: Partial<IUserDatabaseDto>, t
         if (!result) {
             throw AppError.notFound('User not found');
         }
-        return result;
+        return toCamelCase(result);
     });
 };

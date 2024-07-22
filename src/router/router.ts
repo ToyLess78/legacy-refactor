@@ -1,15 +1,15 @@
 import express from 'express';
 
-import {
-    validateAdminMw,
-    validateTokenMw,
-    valTransactionSchMw,
-    validateUserIdMw,
-    valCreateUserSchMw
-} from '../middlewares/middelewares';
+import { valCreateUserSchMw, validateUserIdMw } from '../middlewares/middelewares';
 import { updateUserCtrl } from '../controllers/user/update-user.ctrl';
-import { transactionsCtrl, createUserCtrl, getUserByIdCtrl, healthCtrl } from '../controllers/controllers';
-import { cmbPutUserMw, cmbTransactionMw } from '../middlewares/cmb-mw';
+import {
+    createEventsCtrl,
+    createUserCtrl,
+    getUserByIdCtrl,
+    healthCtrl,
+    transactionsCtrl, updateEventCtrl
+} from '../controllers/controllers';
+import { cmbEventsMw, cmbPutUserMw, cmbTransactionMw, cmbUpEventsMw } from '../middlewares/cmb-mw';
 
 const router = express.Router();
 
@@ -20,5 +20,8 @@ router.put('/users/:id', cmbPutUserMw, updateUserCtrl);
 router.post('/users', valCreateUserSchMw, createUserCtrl);
 
 router.post('/transactions', cmbTransactionMw, transactionsCtrl);
+
+router.post('/events', cmbEventsMw, createEventsCtrl);
+router.put('/events/:id', cmbUpEventsMw, updateEventCtrl);
 
 export default router;
