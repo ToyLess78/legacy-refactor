@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
-    "dev:old": "nodemon index.js",
     "reset:db": "knex migrate:rollback && npm run migrate:latest && npm run seed",
     "test": "npm run reset:db && jest ./tests/index.test.js --forceExit --detectOpenHandles",
     "docker:dev:db": "docker compose up -d hw_db",
