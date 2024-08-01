@@ -4,18 +4,16 @@
 **The code was written by the professionals for educational purposes. Don't repeat at home.**
 
 ### Prerequisites:
-1. `npm install`
-2.  create `.env` file, copy values from `.example.env`
+1. `npm install` - install packages
+2.  Create `.env` file, copy values from `.example.env`
 
-## Start options (pick one):
+## Start server options (pick one):
 
 ### Option 1:
 #### To run the server with a containerized database:
-1. `npm run docker:dev:db` (runs database in docker container)
-2. `npm run migrate:latest && npm run seed` (run only once, next time you start the server - skip this step)
-3. `npm run dev`
-#### To run the tests under the fully containerized environment:
-1. `npm run docker:test`
+1. `npm run docker:dev:db` - create and start a database in docker container
+2. `npm run migrate:latest && npm run seed` - apply the migrations. Run only once, next time you start the server - skip this step
+3. `npm run dev` - run the server
 
 ### Option 2:
 #### To run the server with a system DB instance:
@@ -26,9 +24,15 @@
    * `DATABASE_NAME` (name of a newly created database)
    * `DATABASE_USER` (default username during installation is `postgres`)
    * `DATABASE_ACCESS_KEY` (password to the `postgres` user, which was also set during installation)
-4. apply the migrations: `npm run migrate:latest && npm run seed` (run only once, next time you start the server - skip this step)
-5. run the test and verify that the DB instance can be reached and everything passes: `npm run test`
-6. run the server: `npm run dev`
+4. `npm run migrate:latest && npm run seed` - apply the migrations. Run only once, next time you start the server - skip this step
+5. `npm run dev` - run the server
+
+## Verify the setup is working as expected:
+1. Make sure the server is not running (stop the `npm run dev` process)
+2. `npm run test` - tests should be all passing
+
+* Alternatively, to run the tests under the fully containerized environment:
+1. `npm run docker:test` - bring up the database and server within a docker environment, run the tests, then stop the server container.<br/>Please note, the `hw_db_test` container will still be running.
 
 ### Troubleshooting:
 * __Issue__: running the `npm run docker:test` command fails with:

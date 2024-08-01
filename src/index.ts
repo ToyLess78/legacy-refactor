@@ -9,7 +9,7 @@ import { SrvLoggerMsg } from './shared/enums/enums';
 validateEnv();
 
 const app = express();
-const port = 4000;
+const port = 4066;
 
 app.use(reqLoggerMw);
 app.use(express.json());
