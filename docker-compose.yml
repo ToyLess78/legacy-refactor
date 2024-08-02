@@ -3,12 +3,12 @@ version: '3.8'
 services:
   hw_db:
     image: postgres:12-alpine
-    container_name: backend_hw_db
+    container_name: backend_structure_db
     environment:
-      POSTGRES_DB: backend_hw_db
+      POSTGRES_DB: backend_structure_db
       POSTGRES_USER: a_user
       POSTGRES_PASSWORD: a_password
     volumes:
       - './.docker_pgdata:/var/lib/postgresql/data'
     ports:
-      - '5433:5432'
+      - '5466:5432'
